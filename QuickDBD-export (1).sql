@@ -1,3 +1,7 @@
+﻿-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- NOTE! If you have used non-SQL datatypes in your design, you will have to change these here.
+
+
 CREATE TABLE "campaign" (
     "cf_id" int   NOT NULL,
     "contact_id" int   NOT NULL,
@@ -43,19 +47,4 @@ REFERENCES "campaign" ("subgategory_id");
 
 ALTER TABLE "contacts" ADD CONSTRAINT "fk_contacts_contact_id" FOREIGN KEY("contact_id")
 REFERENCES "campaign" ("contact_id");
-
-Select b.category_id, 
-From public."campaign" as b
-inner join public."category" as d
-on b.catergory_id = d.category_id
-
-Select b.subcategory_id, 
-From public."campaign" as b
-inner join public."subcategory" as e
-on b.catergory_id = e.subcategory_id
-
-Select b.contact_id, 
-From public."campaign" as b
-inner join public."contacts" as f
-on b.contact_id = f.contact_id
 
