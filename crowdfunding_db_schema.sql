@@ -30,9 +30,9 @@ CREATE TABLE "subcategory" (
 
 CREATE TABLE "contacts" (
     "contact_id" int   NOT NULL,
+    "email" text   NOT NULL,
     "first_name" text   NOT NULL,
-    "last_name" text   NOT NULL,
-    "email" text   NOT NULL
+    "last_name" text   NOT NULL
 );
 
 ALTER TABLE "category" ADD CONSTRAINT "fk_category_category_id" FOREIGN KEY("category_id")
@@ -44,18 +44,8 @@ REFERENCES "campaign" ("subgategory_id");
 ALTER TABLE "contacts" ADD CONSTRAINT "fk_contacts_contact_id" FOREIGN KEY("contact_id")
 REFERENCES "campaign" ("contact_id");
 
-Select b.category_id, 
-From public."campaign" as b
-inner join public."category" as d
-on b.catergory_id = d.category_id
-
-Select b.subcategory_id, 
-From public."campaign" as b
-inner join public."subcategory" as e
-on b.catergory_id = e.subcategory_id
-
-Select b.contact_id, 
-From public."campaign" as b
-inner join public."contacts" as f
-on b.contact_id = f.contact_id
+SELECT * FROM public.category
+SELECT * FROM public.contacts
+SELECT * FROM public.subcategory
+SELECT * FROM public.campaign
 
